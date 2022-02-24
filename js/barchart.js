@@ -125,14 +125,18 @@ svg1.selectAll(".bar") //adds bars to svg
 * new chart
 */
 
-d3.csv("data/barchart.csv").then((data) => {
+
 // Append svg object to the body of the page to house bar chart
+
 const svg2 = d3
   .select("#csv-bar")
   .append("svg")
   .attr("width", width-margin.left-margin.right)
   .attr("height", height - margin.top - margin.bottom)
   .attr("viewBox", [0, 0, width, height]);
+
+d3.csv("data/barchart.csv").then((data) => {
+
 
 
 
@@ -152,7 +156,7 @@ let yScale2 = d3.scaleLinear() //sets up y axis and linear
 
 // TODO: What does each line of this code do? 
 let xScale2 = d3.scaleBand()//sets up x axis 
-            .domain(d3.range(data1.length)) //sets start of x axis as the length of the data
+            .domain(d3.range(data.length)) //sets start of x axis as the length of the data
             .range([margin.left, width - margin.right])// sets range of the axis as the top and bottom margin found above
             .padding(0.1); // creates padding between ticks
 
