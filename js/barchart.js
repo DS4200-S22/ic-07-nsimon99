@@ -100,12 +100,14 @@ const mouseleave1 = function(event, d) { //creates function
 
 /* 
 
-  Bars 
+  New Bars 
 
 */
 
+
+  
 // TODO: What does each line of this code do? 
-svg.selectAll(".bar") //adds bars to svg
+svg1.selectAll(".bar") //adds bars to svg
    .data(data1) //adds data to chart
    .enter()  
    .append("rect") // defines bars as rectangles
@@ -122,6 +124,8 @@ svg.selectAll(".bar") //adds bars to svg
 /* 
 * new chart
 */
+
+d3.csv("data/barchart.csv").then((data) => {
 // Append svg object to the body of the page to house bar chart
 const svg2 = d3
   .select("#csv-bar")
@@ -139,7 +143,7 @@ const svg2 = d3
 */ 
 
 // Find max y
-let maxY2 = d3.max(data1, function(d) { return d.score; });
+let maxY2 = d3.max(data, function(d) { return d.score; });
 
 // TODO: What does each line of this code do?   
 let yScale2 = d3.scaleLinear() //sets up y axis and linear
@@ -162,7 +166,7 @@ svg2.append("g")//appends placeholder
 svg2.append("g") //appends placeholder 
     .attr("transform", `translate(0,${height - margin.bottom})`) // defines positioning and scale of x axis
     .call(d3.axisBottom(xScale2) 
-            .tickFormat(i => data1[i].name))  // sets up x axis to the bottom and ticks
+            .tickFormat(i => data[i].name))  // sets up x axis to the bottom and ticks
     .attr("font-size", '20px'); // defines font and size of y axis
 
 /* 
@@ -203,7 +207,7 @@ const mouseleave2 = function(event, d) { //creates function
 
 // TODO: What does each line of this code do? 
 svg2.selectAll(".bar") //adds bars to svg
-   .data(data1) //adds data to chart
+   .data(data) //adds data to chart
    .enter()  
    .append("rect") // defines bars as rectangles
      .attr("class", "bar") // gives class as "bars"
@@ -218,7 +222,7 @@ svg2.selectAll(".bar") //adds bars to svg
 
 
 
-
+}
 
 
 
