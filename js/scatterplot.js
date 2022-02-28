@@ -93,7 +93,7 @@ const myCircles1 = svg3.selectAll("circle")
                             .enter()
                               .append("circle")
                               .attr("cx", (d,i) => xScale3(i)) //sets x data
-                              .attr("cy", (d) => yScale3(d.day)) //sets y data
+                              .attr("cy", (d) => yScale3(d.score)) //sets y data
                               .attr("r", 8)
                               .style("opacity", 0.5)
                               .on("mouseover", mouseover3) //adds mouse over function
@@ -101,7 +101,3 @@ const myCircles1 = svg3.selectAll("circle")
      .on("mouseleave", mouseleave3);//adds mouse leave function
 
 });
-
-
-
-

@@ -234,3 +234,5 @@ svg2.selectAll(".bar") //adds bars to svg
 
 
 
+
+
